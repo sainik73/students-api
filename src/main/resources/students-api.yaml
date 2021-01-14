@@ -1,0 +1,148 @@
+---
+openapi: 3.0.0
+info:
+  title: Students API
+  description: Students API for OAS 3 demo
+  contact:
+    name: saini, k
+    email: sainik73@gmail.com
+  version: 1.0.0
+servers:
+  - url: https://virtserver.swaggerhub.com/sainik73/students/1.0.0
+    description: SwaggerHub API Auto Mocking
+paths:
+  /students:
+    get:
+      description: fetch student by name
+      parameters:
+        - name: student-name
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: Alex
+      responses:
+        "200":
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Students'
+        "404":
+          description: Student not found in system
+    put:
+      description: upate a student record
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        "201":
+          description: Successfully created a new student
+        "400":
+          description: Bad request
+        "500":
+          description: unexpected error encountered in system
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      description: Add a new student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        "201":
+          description: Successfully created a new student
+        "400":
+          description: Bad request
+        "500":
+          description: unexpected error encountered in system
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /students/{student-id}:
+    description: Student resource by Id
+    get:
+      description: fetch student by Id
+      parameters:
+        - name: student-id
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: integer
+            example: 103
+      responses:
+        "200":
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        "404":
+          description: Student not found in system
+  /student:
+    description: Student resource
+  /students-by-age:
+    get:
+      description: fetch student by age
+      parameters:
+        - name: student-age
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: integer
+            example: 22
+      responses:
+        "200":
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Students'
+        "404":
+          description: Student not found in system
+components:
+  schemas:
+    Student:
+      required:
+        - age
+        - name
+        - studentid
+      type: object
+      properties:
+        studentid:
+          type: integer
+          example: 103
+        name:
+          type: string
+          example: Alex
+        age:
+          maximum: 40
+          minimum: 2
+          type: integer
+          example: 22
+    Students:
+      type: array
+      items:
+        $ref: '#/components/schemas/Student'
+    Error:
+      type: object
+      properties:
+        errorid:
+          type: integer
+          example: 1003
+        description:
+          type: string
+          example: Student id is not valid
