@@ -32,8 +32,8 @@ paths:
                 $ref: '#/components/schemas/Students'
         "404":
           description: Student not found in system
-    put:
-      description: upate a student record
+    post:
+      description: Add a new student
       requestBody:
         content:
           application/json:
@@ -50,15 +50,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-    post:
-      description: Add a new student
+    put:
+      description: upate a student record
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Student'
       responses:
-        "201":
+        "200":
           description: Successfully created a new student
         "400":
           description: Bad request
@@ -90,8 +90,6 @@ paths:
                 $ref: '#/components/schemas/Student'
         "404":
           description: Student not found in system
-  /student:
-    description: Student resource
   /students-by-age:
     get:
       description: fetch student by age
