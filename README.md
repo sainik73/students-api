@@ -11,6 +11,10 @@ Any modification to students-api.yaml file, necessitates the build of the projec
 regenerate the API and Model classes. This is done using the swagger-codegen-maven-plugin.
 REST Controller 'StudentsApiController' consumes these generated classes.
 
+Version
+-----------------
+v0.1:
+Initial version with mocked api response
 v1.0: 
 The repository now supports Mongo DB as storage.
 students-api repository connects to Mongo DB, which is run as a Docker container.
