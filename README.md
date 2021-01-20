@@ -13,9 +13,9 @@ REST Controller 'StudentsApiController' consumes these generated classes.
 
 Version
 -----------------
-v0.1:
+- v0.1:
 Initial version with mocked api response
-v1.0: 
+- v1.0: 
 The repository now supports Mongo DB as storage.
 students-api repository connects to Mongo DB, which is run as a Docker container.
 Java Logs (students-api-logger.log) are created under project root/logs directory. 
