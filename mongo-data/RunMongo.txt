@@ -1,0 +1,10 @@
+# Run Mongo DB docker container
+
+# Create a Docker Volume
+docker volume create mongo-data
+
+# This will map 'mongo-data' directory under user profile to 'data/db' directory in container
+docker run -d -p 27017:27017 -v mongo-data:/data/db --name mymongodb mongo:latest
+
+# Check docker status to be running
+docker container ls

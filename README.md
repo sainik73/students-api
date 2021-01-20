@@ -11,6 +11,10 @@ Any modification to students-api.yaml file, necessitates the build of the projec
 regenerate the API and Model classes. This is done using the swagger-codegen-maven-plugin.
 REST Controller 'StudentsApiController' consumes these generated classes.
 
+v1.0: 
+The repository now supports Mongo DB as storage.
+students-api repository connects to Mongo DB, which is run as a Docker container.
+Java Logs (students-api-logger.log) are created under project root/logs directory. 
  
 Instructions
 -----------------
@@ -19,13 +23,12 @@ Instructions
 
 `git clone https://github.com/sainik73/students-api`
 
-2. Build the project with Maven:
+2. Run Mongo docker instance by following instructions in mongo-data\RunMongo.txt file
+3. Build the project with Maven:
 
 ```
 cd students-api/
 mvn clean install
 ```
-
-3. Run the spring boot application 'StudentsApplication'
-4. Test the application using postman
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/04fec31e35710e9bdb41#?env%5Bstudents-api-local-env%5D=W3sia2V5IjoiYmFzZVVybCIsInZhbHVlIjoibG9jYWxob3N0OjgwODAiLCJlbmFibGVkIjp0cnVlfV0=)
+4. Run the spring boot application 'StudentsApplication'
+5. Test the application using postman [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/04fec31e35710e9bdb41#?env%5Bstudents-api-local-env%5D=W3sia2V5IjoiYmFzZVVybCIsInZhbHVlIjoibG9jYWxob3N0OjgxODAiLCJlbmFibGVkIjp0cnVlfV0=)

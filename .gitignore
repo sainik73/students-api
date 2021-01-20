@@ -20,6 +20,9 @@ target/
 *.ipr
 *.jar
 
+### Java Log file
+*.log
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
