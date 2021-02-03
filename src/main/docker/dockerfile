@@ -1,0 +1,13 @@
+FROM adoptopenjdk/openjdk11:alpine-jre
+MAINTAINER sainik73 <sainik73@gmail.com>
+
+#ADD students-1.0.0.jar app.jar
+#ENTRYPOINT ["java","-jar","app.jar"]
+
+ENV APP_FILE students-1.0.0.jar
+ENV APP_HOME /usr/apps
+EXPOSE 8080
+COPY $APP_FILE $APP_HOME/
+WORKDIR $APP_HOME
+ENTRYPOINT ["sh", "-c"]
+CMD ["exec java -jar $APP_FILE"]

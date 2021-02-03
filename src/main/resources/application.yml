@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: students-api
+  data:
+    mongodb:
+      #uri: mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}/${MONGO_DB}
+      database: '${MONGO_DB}'
+      host: '${MONGO_HOST}'
+      port: 27017
+      username: '${MONGO_USERNAME}'
+      password: '${MONGO_PASSWORD}'
+      #authentication-database: admin
+management:
+  endpoint:
+    metrics:
+      enabled: true
+    loggers:
+      enabled: true
+    health:
+      enabled: true
+    info:
+      enabled: true

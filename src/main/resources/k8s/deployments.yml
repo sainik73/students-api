@@ -1,0 +1,57 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: students-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: students-api
+  template:
+    metadata:
+      labels:
+        app: students-api
+    spec:
+      containers:
+        - name: students-api
+          image: sainik73/students-api:1.0.0
+          #imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MONGO_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: appuser
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: apppwd
+            - name: MONGO_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: mongo-conf
+                  key: database
+            - name: MONGO_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: mongo-conf
+                  key: host
+
+      restartPolicy: Always
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: students-api
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+      nodePort: 31001
+  selector:
+    app: students-api

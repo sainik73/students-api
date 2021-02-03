@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+data:
+  database: studentsdb
+  #database: admin
+  host: mongodb-service
+kind: ConfigMap
+metadata:
+  name: mongo-conf
