@@ -29,21 +29,23 @@ Instructions
 
 `git clone https://github.com/sainik73/students-api`
 
-2. Run Mongo docker instance by following instructions in mongo-data\RunMongo.txt file
-3. Build the project with Maven:
+2. Checkout branch v1.0
+3. Run Mongo docker instance by following instructions in mongo-data\RunMongo.txt file
+4. Build the project with Maven:
 
 ```
 cd students-api/
 mvn clean install
 ```
-4. Run the spring boot application 'StudentsApplication'
-5. Test the application using postman [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/04fec31e35710e9bdb41#?env%5Bstudents-api-local-env%5D=W3sia2V5IjoiYmFzZVVybCIsInZhbHVlIjoibG9jYWxob3N0OjgxODAiLCJlbmFibGVkIjp0cnVlfV0=)
+5. Run the spring boot application 'StudentsApplication'
+6. Test the application using postman [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/04fec31e35710e9bdb41#?env%5Bstudents-api-local-env%5D=W3sia2V5IjoiYmFzZVVybCIsInZhbHVlIjoibG9jYWxob3N0OjgxODAiLCJlbmFibGVkIjp0cnVlfV0=)
 
 #### v2.0 Build Instructions:
 1. Clone this repository:
 
 `git clone https://github.com/sainik73/students-api`
-2. Build the project with Maven:
+2. Checkout branch v2.0
+3. Build the project with Maven:
 
 ```
 cd students-api/
@@ -51,37 +53,37 @@ mvn clean install
 ```
 The build will output a docker image.
 
-3. Add image to minikube
-3.1 Delete any existing image from minikube cache
+4. Add image to minikube
+4.1 Delete any existing image from minikube cache
 ```
 > minikube cache delete <image-name>
 ```
-3.2 Enter interactive terminal to minikube and remove image from docker in minikube
+4.2 Enter interactive terminal to minikube and remove image from docker in minikube
 ```
 > docker exec minikube bash
 > docker image rm <image-name>
 > exit
 ```
-3.3 Add image to minikube cache
+4.3 Add image to minikube cache
 ```
 > minikube cache add <image-name>
 ```
-4. Setup Kubernetes resources (deployment, services etc)
-4.1 Change directory to "k8s" in terminal [Its located under <project-root>/src/main/resources]
+5. Setup Kubernetes resources (deployment, services etc)
+5.1 Change directory to "k8s" in terminal [Its located under <project-root>/src/main/resources]
 ```
 > kubectl apply -f .
 ```
-5. Start service on windows host [It will expose port on host to access service]
+6. Start service on windows host [It will expose port on host to access service]
 ```
 > minikube service students-api
 ```
-6. Test application
-6.1 Modify the postman environment for exposed port
-6.2 Run postman collection [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/04fec31e35710e9bdb41#?env%5Bstudents-api-local-env%5D=W3sia2V5IjoiYmFzZVVybCIsInZhbHVlIjoibG9jYWxob3N0OjgxODAiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoidGV4dCJ9XQ==)
+7. Test application
+7.1 Modify the postman environment for exposed port
+7.2 Run postman collection [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/04fec31e35710e9bdb41#?env%5Bstudents-api-local-env%5D=W3sia2V5IjoiYmFzZVVybCIsInZhbHVlIjoibG9jYWxob3N0OjgxODAiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoidGV4dCJ9XQ==)
 
 
 Known Issues
 -----------------
 Version v2.0:
-1) Constraints defined in yaml are not validated for request payload  because of open issue (<a href= "https://github.com/swagger-api/swagger-codegen/issues/7058">#7058</a>) 
+1) Constraints defined in yaml are not validated for request payload because of open issue (<a href= "https://github.com/swagger-api/swagger-codegen/issues/7058">#7058</a>) 
 in swagger code gen plugin v 3.0.24
