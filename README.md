@@ -77,7 +77,7 @@ The build will output a docker image.
 ```
 > minikube service students-api
 ```
-7. Test application
+7. Test application 
 7.1 Modify the postman environment for exposed port
 7.2 Run postman collection [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/04fec31e35710e9bdb41#?env%5Bstudents-api-local-env%5D=W3sia2V5IjoiYmFzZVVybCIsInZhbHVlIjoibG9jYWxob3N0OjgxODAiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoidGV4dCJ9XQ==)
 
