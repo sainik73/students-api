@@ -34,10 +34,7 @@ public class StudentsService {
 
     public com.example.openapi.model.Student getById(Integer studentId){
         Optional<Student> s = studentsRepository.findById(studentId);
-        if (s.isPresent()) {
-            return convertToJSON(s.get());
-        }
-        return null;
+        return s.map(this::convertToJSON).orElse(null);
     }
 
     public List<com.example.openapi.model.Student> getByName(String studentName){
@@ -58,9 +55,18 @@ public class StudentsService {
         return jsonStudent;
     }
 
+    public List<com.example.openapi.model.Student> getAll() {
+        List<Student> studentsList = studentsRepository.findAll();
+        List<com.example.openapi.model.Student> jsonStudent = new ArrayList<>();
+        for (Student student : studentsList) {
+            jsonStudent.add(convertToJSON(student));
+        }
+        return jsonStudent;
+    }
+
     /**
      * Method to convert the DB model object to json model
-     * @param student
+     * @param student Object of Student
      * @return com.example.openapi.model.Student
      */
     private com.example.openapi.model.Student convertToJSON(Student student) {
