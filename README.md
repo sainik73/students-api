@@ -44,6 +44,7 @@ mvn clean install
 1. Clone this repository:
 
 `git clone https://github.com/sainik73/students-api`
+
 2. Checkout branch v2.0
 3. Build the project with Maven:
 
