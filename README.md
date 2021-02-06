@@ -1,5 +1,5 @@
 # Welcome to students-api
-![Java Build](https://github.com/actions/hello-world/workflows/Students-api%20CI%20with%20Maven/badge.svg)
+![students-api Maven Build](https://github.com/sainik73/students-api/workflows/students-api%20Maven%20Build/badge.svg)
 
 This repository shows the working example of how to design and build an API using the API First Design approach.
 The Design First approach advocates for designing the API's contract first before writing any implementation/code.
