@@ -104,6 +104,7 @@ The build will output a docker image.
 > mvn clean install
 ```
 The build will output a docker image.
+
 4. Install helm repo
 ```
 > helm repo add bitnami https://charts.bitnami.com/bitnami
